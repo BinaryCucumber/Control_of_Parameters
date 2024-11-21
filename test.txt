@@ -1,0 +1,2 @@
+Humidity:15
+Temperature:20

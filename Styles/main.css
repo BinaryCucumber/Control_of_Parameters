@@ -1,0 +1,103 @@
+/* Общие стили для страницы */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 100%;  /* Устанавливаем высоту в 100% для html и body */
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(45deg, rgb(19, 77, 110), rgb(248, 253, 248));
+    display: flex;
+    justify-content: center;  /* Центрируем блоки по горизонтали */
+    align-items: flex-start;  /* Вертикально прижимаем к верхней части */
+    height: 100vh;            /* Задаем высоту 100% от видимой области экрана */
+    color: #333;
+    flex-direction: column;  /* Оставляем блоки вертикальными */
+    padding-bottom: 50px;  /* Добавляем отступ снизу для футера */
+  }
+  
+  .main-container {
+    display: flex;
+    flex-direction: row;  /* Горизонтальное направление для контейнеров */
+    gap: 20px;  /* Отступ между контейнерами */
+    justify-content: flex-start;  /* Выравнивание контейнеров по горизонтали */
+    align-items: center;      /* Выравнивание по вертикали */
+    flex-wrap: wrap; /* Разрешаем перенос блоков */
+    padding-left: 50px;  /* Добавляем отступ от левой границы */
+  }
+  
+  .container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+    opacity: 0.6; /* Сделаем контейнеры неактивными */
+    transition: opacity 0.3s ease;
+  }
+  
+  .container.active {
+    opacity: 1; /* Активный контейнер будет видимым */
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  
+  .sensor-data p {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  
+  .led-status {
+    margin-top: 20px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #led_indicator {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-left: 10px;
+    border: 2px solid #888;
+  }
+  
+  .led-off {
+    background-color: #cc0000; /* Красный для неактивного состояния */
+  }
+  
+  .led-on {
+    background-color: #09eb09; /* Красный для неактивного состояния */
+  }
+
+  footer {
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+    padding: 10px 0;
+    position: absolute;  /* Размещаем футер снизу */
+    bottom: 0;
+  }
+  
+  footer a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+  }
+  
