@@ -101,3 +101,114 @@
     text-decoration: underline;
   }
   
+  .notification {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f44336; /* Красный фон */
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Стиль для активной формы с ошибками */
+.error {
+  border: 2px solid red;
+}
+
+
+
+/* Убедитесь, что родительский контейнер имеет позиционирование */
+.container {
+  position: relative; /* Позволяет использовать абсолютное позиционирование для элементов внутри */
+}
+
+/* Стили для кнопки с иконкой */
+.toggle-report {
+  position: absolute; /* Позиционируем кнопку относительно контейнера */
+  top: 10px;          /* Расстояние от верхнего края контейнера */
+  left: 10px;         /* Расстояние от левого края контейнера */
+  padding: 10px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: #808080; /* Серый цвет */
+  font-size: 24px; /* Устанавливаем размер иконки */
+  transition: color 0.3s ease;
+}
+
+.toggle-report:hover {
+  color: #555555; /* Темнее серый цвет при наведении */
+}
+
+.toggle-report i {
+  margin-right: 5px; /* Отступ между иконкой и текстом */
+}
+
+/* Стили для всплывающего окна мини-отчета */
+.report-window {
+  position: fixed;         /* Окно будет фиксированным на экране */
+  top: 50%;                /* Позиционируем по вертикали по центру */
+  left: 50%;               /* Позиционируем по горизонтали по центру */
+  transform: translate(-50%, -50%);  /* Центрируем окно */
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 400px;            /* Ширина окна */
+  max-width: 90%;          /* Окно не выходит за пределы экрана */
+  height: auto;
+  opacity: 0;              /* Начальная невидимость */
+  visibility: hidden;      /* Скрыто изначально */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1000;           /* Чтобы окно было поверх других элементов */
+}
+
+/* Когда окно открыто (класс .show добавляется для открытия) */
+.report-window.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);  /* Плавное увеличение окна */
+}
+
+/* Заголовок и кнопка закрытия */
+.report-window-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#report_message {
+  font-size: 18px;
+  color: #333;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #ff6666; /* Красный для кнопки закрытия */
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #ff3333; /* Темно-красный при наведении */
+}
+
+/* Стили для текста мини-отчета */
+#report_details {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Плавный переход для окна */
+.report-window {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+

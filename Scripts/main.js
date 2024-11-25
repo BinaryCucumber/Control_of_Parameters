@@ -5,7 +5,7 @@ function checkAuthorization() {
     // Если пользователь не авторизован, перенаправляем на страницу входа
     if (isAuthenticated !== "true") {
         alert("Вы не авторизованы! Пожалуйста, войдите заново.");
-        window.location.href = "../Control Parametrs/login.html";
+        window.location.href = "../login.html";
     }
 }
 
@@ -14,7 +14,7 @@ function logout() {
     // Удаляем статус авторизации
     localStorage.removeItem("isAuthenticated");
     // Перенаправляем на страницу входа
-    window.location.href = "../Control Parametrs/login.html";
+    window.location.href = "../login.html";
 }
 
 // Проверяем авторизацию при загрузке страницы

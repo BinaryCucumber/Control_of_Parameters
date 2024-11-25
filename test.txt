@@ -1,2 +1,2 @@
-Humidity:5
-Temperature:25
+Humidity:61
+Temperature:24
