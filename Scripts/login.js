@@ -1,22 +1,34 @@
-// Функция проверки данных
-function validateForm(event) {
-  event.preventDefault(); // Отменяем отправку формы по умолчанию
-  localStorage.setItem("isAuthenticated", "false");
+// Функция обработки входа
+function handleLogin(event) {
+  event.preventDefault(); // Отменяем стандартное поведение формы
+
   const username = document.querySelector('input[type="text"]').value;
   const password = document.querySelector('input[type="password"]').value;
 
-  // Проверяем правильность логина и пароля
+  // Проверка логина и пароля
   if (username === "Admin" && password === "12345") {
-      // Сохраняем состояние входа в localStorage
+      // Сохраняем состояние авторизации
       localStorage.setItem("isAuthenticated", "true");
-      // Перенаправляем на другую страницу
-      window.location.href = "../Login in system/main.html"; // Укажите URL страницы для успешного входа
+      // Перенаправляем на главную страницу
+      window.location.href = "../Control Parametrs/main.html";
   } else {
       alert("Неверный логин или пароль! Попробуйте снова.");
   }
 }
 
-// Запускаем проверку авторизации при загрузке страницы
+// Привязываем обработчик формы
 window.onload = function () {
-  validateForm();
+  const loginForm = document.getElementById("loginForm");
+  if (loginForm) {
+      loginForm.addEventListener("submit", handleLogin);
+  }
+};
+
+// Блокируем переходы по истории (Назад/Вперед)
+history.pushState(null, null, location.href); // Добавляем состояние в историю
+
+window.onpopstate = function (event) {
+    // При попытке вернуться или перейти вперёд оставляем на текущей странице
+    history.pushState(null, null, location.href);
+    alert("Навигация отключена! Вы не можете покинуть эту страницу таким образом.");
 };

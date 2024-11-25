@@ -1,21 +1,29 @@
-// Функция для проверки авторизации
+// Функция проверки авторизации
 function checkAuthorization() {
-    // Проверяем наличие флага авторизации в localStorage
-    const isAuthenticated = localStorage.getItem('isAuthenticated');
+    const isAuthenticated = localStorage.getItem("isAuthenticated");
 
-    // Если флаг отсутствует или равен "false", перенаправляем на страницу входа
-    if (isAuthenticated !== 'true') {
+    // Если пользователь не авторизован, перенаправляем на страницу входа
+    if (isAuthenticated !== "true") {
         alert("Вы не авторизованы! Пожалуйста, войдите заново.");
-        window.location.href = "../Login in system/login.html"; // Укажите путь к странице входа
+        window.location.href = "../Control Parametrs/login.html";
     }
 }
 
-// Запускаем проверку авторизации при загрузке страницы
+// Функция выхода из системы
+function logout() {
+    // Удаляем статус авторизации
+    localStorage.removeItem("isAuthenticated");
+    // Перенаправляем на страницу входа
+    window.location.href = "../Control Parametrs/login.html";
+}
+
+// Проверяем авторизацию при загрузке страницы
 window.onload = function () {
     checkAuthorization();
-};
 
-// Дополнительно: Проверка авторизации через интервалы (если требуется постоянно проверять)
-setInterval(() => {
-    checkAuthorization();
-}, 5000); // Проверяем каждые 5 секунд
+    // Привязываем обработчик к кнопке выхода
+    const logoutButton = document.getElementById("logoutButton");
+    if (logoutButton) {
+        logoutButton.addEventListener("click", logout);
+    }
+};
