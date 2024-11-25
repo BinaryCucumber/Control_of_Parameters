@@ -10,7 +10,7 @@ function handleLogin(event) {
       // Сохраняем состояние авторизации
       localStorage.setItem("isAuthenticated", "true");
       // Перенаправляем на главную страницу
-      window.location.href = "../Control Parametrs/main.html";
+      window.location.href = "../main.html";
   } else {
       alert("Неверный логин или пароль! Попробуйте снова.");
   }
