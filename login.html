@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" href="../Images/email32px.png" type="image/x-icon" />
+		<link rel="stylesheet" href="../Styles/login.css" type="text/css" />
+		<title>Вход в систему</title>
+	</head>
 
-  <head>
-      <meta charset="UTF-8">
-      <link rel="icon" href="../Images/main-icon4.jpg" type="image/x-icon">
-      <link rel="stylesheet" href="../Styles/login.css" type="text/css">
-      <title>Авторизация</title>   
-  </head>
+	<body>
+		<div class="wrapper">
+			<form id="loginForm">
+				<h1>Вход в систему</h1>
+				<div class="input_box">
+					<input type="text" placeholder="Логин" required />
+				</div>
+				<div class="input_box">
+					<input type="password" placeholder="Пароль" required />
+				</div>
+				<button type="submit" class="btn">Войти</button>
+			</form>
+		</div>
 
-  <body>
-    <div class="wrapper">
-      <form id="loginForm">
-        <h1>Авторизация</h1>
-        <div class="input_box">
-          <input type="text" placeholder="Логин" required>
-        </div>
-        <div class="input_box">
-          <input type="password" placeholder="Пароль" required>
-        </div>
-        <button type="submit" class="btn">Вход</button>
-      </form>
-    </div>
-
-    <!-- Подключение внешнего JavaScript файла -->
-    <script src="../Scripts/login.js"></script> 
-  </body>
+		<!-- Подключение внешнего JavaScript файла -->
+		<script src="../Scripts/login.js"></script>
+	</body>
 </html>

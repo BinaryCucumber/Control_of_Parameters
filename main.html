@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sensor Data</title>
+    <title>Показания микроклимата</title>
+    <link rel="icon" href="../Images/note32px.png" type="image/x-icon">
     <link rel="stylesheet" href="../Styles/main.css"> <!-- Подключение внешнего CSS файла -->
     <audio id="alarm-sound" src="../sounds/alarm.mp3" preload="auto"></audio>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- Подключение Font Awesome -->
@@ -14,11 +15,11 @@
       <div class="container active">
         <h1>Показания стеллажа 1</h1>
         <div class="sensor-data">
-          <p>Влажность: <span id="humidity_value">75</span> %</p>
-          <p>Температура: <span id="temperature_value">25</span> °C</p>
+          <p>Влажность: <span class="humidity_value">75</span> %</p>
+          <p>Температура: <span class="temperature_value">25</span> °C</p>
         </div>
         <div class="led-status">
-          <p>Светодиод: <span id="led_status">НЕАКТИВЕН</span><span id="led_indicator" class="led-off"></span></p>
+          <p>Датчик: <span id="led_status">НЕАКТИВЕН</span><span id="led_indicator" class="led-off"></span></p>
         </div>
          <!-- Кнопка для развертывания мини-отчета -->
      <button class="toggle-report" onclick="toggleReportWindow()">
@@ -39,38 +40,38 @@
       <div class="container">
         <h1>Показания стеллажа 2</h1>
         <div class="sensor-data">
-          <p>Влажность: <span id="humidity_value">60</span> %</p>
-          <p>Температура: <span id="temperature_value">22</span> °C</p>
+          <p>Влажность: <span id="humidity_value">##</span> %</p>
+          <p>Температура: <span id="temperature_value">##</span> °C</p>
         </div>
         <div class="led-status">
-          <p>Светодиод: <span id="led_status">НЕАКТИВЕН</span><span id="led_indicator" class="led-off"></span></p>
+          <p>Датчик: <span id="led_status">НЕАКТИВЕН</span><span id="led_indicator" class="led-off"></span></p>
         </div>
       </div>
 
       <div class="container">
         <h1>Показания стеллажа 3</h1>
         <div class="sensor-data">
-          <p>Влажность: <span id="humidity_value">65</span> %</p>
-          <p>Температура: <span id="temperature_value">23</span> °C</p>
+          <p>Влажность: <span id="humidity_value">##</span> %</p>
+          <p>Температура: <span id="temperature_value">##</span> °C</p>
         </div>
         <div class="led-status">
-          <p>Светодиод: <span id="led_status">НЕАКТИВЕН</span><span id="led_indicator" class="led-off"></span></p>
+          <p>Датчик: <span id="led_status">НЕАКТИВЕН</span><span id="led_indicator" class="led-off"></span></p>
         </div>
       </div>
 
       <div class="container">
         <h1>Показания стеллажа 4</h1>
         <div class="sensor-data">
-          <p>Влажность: <span id="humidity_value">70</span> %</p>
-          <p>Температура: <span id="temperature_value">24</span> °C</p>
+          <p>Влажность: <span id="humidity_value">##</span> %</p>
+          <p>Температура: <span id="temperature_value">##</span> °C</p>
         </div>
         <div class="led-status">
-          <p>Светодиод: <span id="led_status">НЕАКТИВЕН</span><span id="led_indicator" class="led-off"></span></p>
+          <p>Датчик: <span id="led_status">НЕАКТИВЕН</span><span id="led_indicator" class="led-off"></span></p>
         </div>
       </div>
 
     <footer>
-      <p>&copy; 2024. Все права защищены. <a href="#">Контакты</a></p>
+      <p>&copy; 2024. KubSTU. Все права защищены. <a href="https://t.me/martin_emitter">Контакты</a></p>
     </footer>
     
     <script src="../Scripts/LED.js"></script> <!-- Подключение JavaScript -->

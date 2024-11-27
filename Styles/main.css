@@ -1,214 +1,212 @@
-/* Общие стили для страницы */
+/* Сброс стандартных отступов и полей */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  html, body {
-    height: 100%;  /* Устанавливаем высоту в 100% для html и body */
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(45deg, rgb(19, 77, 110), rgb(248, 253, 248));
-    display: flex;
-    justify-content: center;  /* Центрируем блоки по горизонтали */
-    align-items: flex-start;  /* Вертикально прижимаем к верхней части */
-    height: 100vh;            /* Задаем высоту 100% от видимой области экрана */
-    color: #333;
-    flex-direction: column;  /* Оставляем блоки вертикальными */
-    padding-bottom: 50px;  /* Добавляем отступ снизу для футера */
-  }
-  
-  .main-container {
-    display: flex;
-    flex-direction: row;  /* Горизонтальное направление для контейнеров */
-    gap: 20px;  /* Отступ между контейнерами */
-    justify-content: flex-start;  /* Выравнивание контейнеров по горизонтали */
-    align-items: center;      /* Выравнивание по вертикали */
-    flex-wrap: wrap; /* Разрешаем перенос блоков */
-    padding-left: 50px;  /* Добавляем отступ от левой границы */
-  }
-  
-  .container {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 300px;
-    opacity: 0.6; /* Сделаем контейнеры неактивными */
-    transition: opacity 0.3s ease;
-  }
-  
-  .container.active {
-    opacity: 1; /* Активный контейнер будет видимым */
-  }
-  
-  h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    font-weight: 600;
-  }
-  
-  .sensor-data p {
-    font-size: 18px;
-    margin: 10px 0;
-  }
-  
-  .led-status {
-    margin-top: 20px;
-    font-size: 18px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  #led_indicator {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    margin-left: 10px;
-    border: 2px solid #888;
-  }
-  
-  .led-off {
-    background-color: #cc0000; /* Красный для неактивного состояния */
-  }
-  
-  .led-on {
-    background-color: #09eb09; /* Красный для неактивного состояния */
-  }
-
-  footer {
-    width: 100%;
-    text-align: center;
-    font-size: 14px;
-    color: #555;
-    padding: 10px 0;
-    position: absolute;  /* Размещаем футер снизу */
-    bottom: 0;
-  }
-  
-  footer a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  footer a:hover {
-    text-decoration: underline;
-  }
-  
-  .notification {
-    position: fixed;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #f44336; /* Красный фон */
-    color: white;
-    padding: 15px;
-    border-radius: 5px;
-    font-size: 16px;
-    z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-/* Стиль для активной формы с ошибками */
-.error {
-  border: 2px solid red;
+html,
+body {
+	height: 100%; /* Высота 100% для html и body */
 }
 
+/* Обновляем стили для body */
+body {
+	font-family: Arial, sans-serif;
+	background: linear-gradient(45deg, rgb(19, 77, 110), rgb(248, 253, 248));
+	margin: 0;
+	padding: 0;
+	color: #333;
+	overflow: hidden; /* Убираем прокрутку, если не нужно */
+}
 
+/* Родительский контейнер (убираем все ограничивающие стили для него) */
+.main-container {
+	padding-top: 200px;
+	display: flex;
+	flex-wrap: wrap; /* Разрешаем перенос строк */
+	gap: 20px; /* Отступ между контейнерами */
+	justify-content: center; /* Равномерное расположение контейнеров */
+	align-items: center; /* Выравнивание по вертикали */
+	max-width: 1200px; /* Ограничиваем ширину для больших экранов */
+	box-sizing: border-box; /* Учитываем отступы и ширину */
+	margin: 0 auto; /* Центрируем контейнер по горизонтали */
+}
 
-/* Убедитесь, что родительский контейнер имеет позиционирование */
+/* Активный контейнер */
 .container {
-  position: relative; /* Позволяет использовать абсолютное позиционирование для элементов внутри */
+	background-color: white;
+	padding: 30px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	text-align: center;
+	width: calc(25% - 20px); /* Ширина контейнера */
+	min-width: 200px;
+	max-width: 300px;
+	opacity: 0.6;
+	transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* Стили для кнопки с иконкой */
+/* Активный контейнер */
+.container.active {
+	opacity: 1;
+	transform: scale(1.02);
+}
+
+h1 {
+	font-size: 24px;
+	margin-bottom: 20px;
+	font-weight: 600;
+}
+
+.sensor-data p {
+	font-size: 18px;
+	margin: 10px 0;
+}
+
+.led-status {
+	margin-top: 20px;
+	font-size: 18px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#led_indicator {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	margin-left: 10px;
+	border: 2px solid #888;
+}
+
+.led-off {
+	background-color: #cc0000; /* Красный для неактивного состояния */
+}
+
+.led-on {
+	background-color: #09eb09; /* Зеленый для активного состояния */
+}
+
+/* Футер */
+footer {
+	width: 100%;
+	text-align: center;
+	font-size: 14px;
+	color: white; /* Белый цвет для текста футера */
+	padding: 10px 0;
+	background: linear-gradient(
+		45deg,
+		rgba(19, 77, 110, 0.7),
+		/* Цвет начала градиента */ rgba(248, 253, 248, 0.7)
+			/* Цвет конца градиента */
+	); /* Прозрачный градиент, как у основной страницы */
+	position: fixed; /* Фиксируем футер внизу страницы */
+	bottom: 0;
+	left: 0;
+	border-top: none; /* Убираем границу футера */
+	box-shadow: none; /* Убираем тень, если она была */
+}
+footer a {
+	color: #2b4a6b;
+	text-decoration: none;
+}
+
+footer a:hover {
+	text-decoration: underline;
+}
+
+/* Уведомления */
+.notification {
+	position: fixed;
+	top: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: #f44336; /* Красный фон */
+	color: white;
+	padding: 15px;
+	border-radius: 5px;
+	font-size: 16px;
+	z-index: 1000;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Стили для активной формы с ошибками */
+.error {
+	border: 2px solid red;
+}
+
+/* Кнопка для отчета */
 .toggle-report {
-  position: absolute; /* Позиционируем кнопку относительно контейнера */
-  top: 10px;          /* Расстояние от верхнего края контейнера */
-  left: 10px;         /* Расстояние от левого края контейнера */
-  padding: 10px;
-  cursor: pointer;
-  background-color: transparent;
-  border: none;
-  color: #808080; /* Серый цвет */
-  font-size: 24px; /* Устанавливаем размер иконки */
-  transition: color 0.3s ease;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	padding: 10px;
+	cursor: pointer;
+	background-color: transparent;
+	border: none;
+	color: #808080;
+	font-size: 24px;
+	transition: color 0.3s ease;
 }
 
 .toggle-report:hover {
-  color: #555555; /* Темнее серый цвет при наведении */
+	color: #555555;
 }
 
-.toggle-report i {
-  margin-right: 5px; /* Отступ между иконкой и текстом */
-}
-
-/* Стили для всплывающего окна мини-отчета */
+/* Мини-отчет */
 .report-window {
-  position: fixed;         /* Окно будет фиксированным на экране */
-  top: 50%;                /* Позиционируем по вертикали по центру */
-  left: 50%;               /* Позиционируем по горизонтали по центру */
-  transform: translate(-50%, -50%);  /* Центрируем окно */
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 400px;            /* Ширина окна */
-  max-width: 90%;          /* Окно не выходит за пределы экрана */
-  height: auto;
-  opacity: 0;              /* Начальная невидимость */
-  visibility: hidden;      /* Скрыто изначально */
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  z-index: 1000;           /* Чтобы окно было поверх других элементов */
+	position: absolute; /* Обеспечивает фиксированное положение относительно окна браузера */
+	top: 50%; /* Центрирование по вертикали */
+	left: 50%; /* Центрирование по горизонтали */
+	transform: translate(-50%, -50%); /* Центрирование с учетом размеров окна */
+	background-color: white;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	width: 400px; /* Ширина окна */
+	max-width: 90%; /* Окно не выходит за пределы экрана */
+	height: auto;
+	opacity: 0; /* Начальная невидимость */
+	visibility: hidden; /* Скрыто изначально */
+	transition: opacity 0.3s ease, transform 0.3s ease;
+	z-index: 1000; /* Поверх других элементов */
 }
 
 /* Когда окно открыто (класс .show добавляется для открытия) */
 .report-window.show {
-  opacity: 1;
-  visibility: visible;
-  transform: translate(-50%, -50%) scale(1);  /* Плавное увеличение окна */
+	opacity: 1;
+	visibility: visible;
+	transform: translate(-50%, -50%) scale(1); /* Плавное увеличение окна */
 }
 
-/* Заголовок и кнопка закрытия */
 .report-window-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: bold;
-  margin-bottom: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-weight: bold;
+	margin-bottom: 10px;
 }
 
 #report_message {
-  font-size: 18px;
-  color: #333;
+	font-size: 18px;
+	color: #333;
 }
 
 .close-btn {
-  background: none;
-  border: none;
-  font-size: 18px;
-  color: #ff6666; /* Красный для кнопки закрытия */
-  cursor: pointer;
+	background: none;
+	border: none;
+	font-size: 18px;
+	color: #ff6666;
+	cursor: pointer;
 }
 
 .close-btn:hover {
-  color: #ff3333; /* Темно-красный при наведении */
+	color: #ff3333;
 }
 
-/* Стили для текста мини-отчета */
 #report_details {
-  font-size: 16px;
-  color: #555;
+	font-size: 16px;
+	color: #555;
 }
-
-/* Плавный переход для окна */
-.report-window {
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
